@@ -1,0 +1,28 @@
+<div class="container">
+  <mat-card>
+    <mat-form-field class="example-full-width" appearance="fill">
+      <mat-label>Buscar</mat-label>
+      <input
+        [formControl]="searchField"
+        (change)="onChange($event)"
+        matInput
+        placeholder=""
+      />
+    </mat-form-field>
+  </mat-card>
+
+  <mat-card class="result">
+    <p>Nombre: {{ result?.name }}</p>
+    <p>Altura: {{ result?.height }}</p>
+    <p>Peso: {{ result?.weight }}</p>
+    <img src="{{ result?.sprites?.front_default }}" />
+  </mat-card>
+
+  <button mat-button (click)="borrarPokemons()">Borrar historial</button>
+  <mat-card class="result" *ngFor="let item of arrayPokemon">
+    <p>Nombre: {{ item?.name }}</p>
+    <p>Altura: {{ item?.height }}</p>
+    <p>Peso: {{ item?.weight }}</p>
+    <img src="{{ item?.sprites?.front_default }}" />
+  </mat-card>
+</div>
